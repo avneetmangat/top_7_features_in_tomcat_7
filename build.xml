@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="tomcat7demo" default="build" basedir=".">
+	<path id="build.classpath">
+	  <fileset dir=".">
+	     <include name="lib/*.jar"/>
+	  </fileset>
+	</path>
+
+	<target name="build">
+		<delete dir="build"/>
+		<mkdir dir="build/classes" />
+
+                <javac debug="true" destdir="build/classes" srcdir="src/java" classpathref="build.classpath" />
+
+		<war destfile="build/tomcat7demo.war" webxml="web/WEB-INF/web.xml">
+		  <fileset dir="web"/>
+		  <classes dir="build/classes"/>
+		</war>
+	</target>	
+</project>

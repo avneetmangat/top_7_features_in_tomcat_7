@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <!-- Csrf prevention filter -->
+    <filter>
+        <filter-name>CSRFPreventionFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.CsrfPreventionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CSRFPreventionFilter</filter-name>
+        <url-pattern>/csrf/*</url-pattern>
+    </filter-mapping>
+    
+
+    <!-- Csrf Test Servlet -->
+    <servlet>
+        <servlet-name>Csrf Test Servlet</servlet-name>
+        <servlet-class>tomcat7demo.CsrfTestServlet</servlet-class>
+    </servlet>
+
+    <!-- Alias test servlet -->
+    <servlet>
+        <servlet-name>Alias Test Servlet</servlet-name>
+        <servlet-class>tomcat7demo.AliasTestServlet</servlet-class>
+    </servlet>
+
+
+    <!-- Csrf Test Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>Csrf Test Servlet</servlet-name>
+        <url-pattern>/csrf/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Alias Test Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>Alias Test Servlet</servlet-name>
+        <url-pattern>/alias/*</url-pattern>
+    </servlet-mapping>
+</web-app>
